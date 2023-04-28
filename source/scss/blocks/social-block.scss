@@ -6,6 +6,12 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    li {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s ease 0;
+    }
   }
 }
 
@@ -17,6 +23,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.3s ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +42,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: transform 0.3s ease;
   }
 
   svg {
@@ -49,8 +57,7 @@
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: translate(-50%, -50%) scale(1.125);
     }
   }
 
@@ -87,8 +94,9 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -145,6 +153,17 @@
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    transform: translateY(5px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+
+    &:nth-child(2) {
+      transition-delay: 0.3s;
+    }
+
+    &:nth-child(3) {
+      transition-delay: 0.6s;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -168,6 +187,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
