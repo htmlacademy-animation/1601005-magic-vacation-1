@@ -27,6 +27,15 @@
 }
 
 .page-header__logo {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: transform 0.3s cubic-bezier(0.36, 0.22, 0, 0.98), opacity 0.3s cubic-bezier(0.36, 0.22, 0, 0.98);
+
+  .is-load & {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
   @include hover;
   position: relative;
   flex: none;
@@ -130,6 +139,12 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.36, 0.22, 0, 0.98);
+
+  .is-load & {
+    opacity: 1;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -270,9 +285,13 @@
 
     &.active {
       &::after {
-        transform: scaleX(1);
+        transform: scaleX(0);
         transform-origin: left center;
       }
+    }
+
+    .is-load &.active::after {
+      transform: scaleX(1);
     }
 
     &:hover,

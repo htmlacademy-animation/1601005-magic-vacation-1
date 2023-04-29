@@ -14,7 +14,7 @@
     min-height: calc(var(--vh, 1vh) * 100);
   }
 
-  @media (max-width: $tablet - 1) and (orientation: landscape) {
+  @media (max-width: ($tablet - 1)) and (orientation: landscape) {
     height: 100vh;
   }
 }
@@ -46,6 +46,14 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.36, 0.22, 0, 0.98);
+
+  .is-load & {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
