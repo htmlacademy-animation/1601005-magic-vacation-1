@@ -1,5 +1,11 @@
 .social-block {
   position: relative;
+  transform: scale(0, 0);
+  transition: transform 0.3s ease;
+
+  .is-load & {
+    transform: scale(1, 1);
+  }
 
   &:hover {
     .social-block__list {
