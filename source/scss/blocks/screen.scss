@@ -30,6 +30,26 @@
   z-index: 1;
 }
 
+h2 {
+  .word {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    white-space: nowrap;
+    padding-top: 2rem;
+    margin-top: -2rem;
+
+    span {
+      display: inline-block;
+      transform: translate3d(0, 120%, 0);
+    }
+  }
+
+  &.animate--active .word span {
+    transform: translateY(0);
+  }
+}
+
 .screen__disclaimer {
   position: absolute;
   bottom: 0;
