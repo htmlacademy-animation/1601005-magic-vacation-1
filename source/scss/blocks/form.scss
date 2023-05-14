@@ -135,6 +135,19 @@
 .form--result {
   .form__field {
     width: calc(100% - 31rem);
+    animation-name: form-input;
+    animation-duration: 0.6s;
+    animation-delay: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    &::placeholder {
+      animation-name: placeholder;
+      animation-duration: 0.6s;
+      animation-delay: 2.6s;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+    }
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
@@ -151,5 +164,43 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+
+  .form__button {
+    opacity: 0;
+    animation-name: opacity-block;
+    animation-duration: 0.6s;
+    animation-delay: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  .form__button span {
+    opacity: 0;
+    animation-name: opacity-block;
+    animation-duration: 0.6s;
+    animation-delay: 2.6s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes form-input {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes placeholder {
+  from {
+    color: rgba($c-dark, 0);
+  }
+
+  to {
+    color: rgba($c-dark, 1);
   }
 }
