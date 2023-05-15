@@ -30,19 +30,12 @@
 }
 
 .form__field {
-  flex: none;
+  position: relative;
   margin-right: 3rem;
-  padding: 0 5.6rem;
   height: 6rem;
   width: calc(100% - 21rem);
-  text-transform: uppercase;
-  font: inherit;
-  font-size: 2.4rem;
-  line-height: 1.2;
-  color: $c-dark;
-  border: 0;
   border-radius: 3rem;
-  outline: none;
+  overflow: hidden;
   transform: scaleX(0);
   transition: transform 0.5s ease;
   transform-origin: right center;
@@ -51,25 +44,57 @@
     transform: scaleX(1);
   }
 
-  &:focus {
-    border: 1px solid $c-purple;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  input {
+    padding: 0 5.6rem;
+    border-radius: 3rem;
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+    font: inherit;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: $c-dark;
+    border: 0;
+    outline: none;
+
+    &:focus {
+      border: 1px solid $c-purple;
+    }
   }
 
   @media (min-width: $stop-scaling) {
     margin-right: 30px;
-    padding: 0 56px;
     height: 60px;
     width: calc(100% - 210px);
-    font-size: 24px;
     border-radius: 30px;
+
+    input {
+      padding: 0 56px;
+      font-size: 24px;
+      border-radius: 30px;
+    }
   }
 
   @media (orientation: portrait) {
     margin-right: 1rem;
-    padding: 0 2.5rem;
     width: calc(100% - 5rem);
     height: 4rem;
-    font-size: 1.6rem;
+
+    input {
+      padding: 0 2.5rem;
+      font-size: 1.6rem;
+    }
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
@@ -78,10 +103,13 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-right: 1rem;
-    padding: 0 2.5rem;
     width: calc(100% - 5rem);
     height: 4rem;
-    font-size: 1.6rem;
+
+    input {
+      padding: 0 2.5rem;
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -135,6 +163,21 @@
 .form--result {
   .form__field {
     width: calc(100% - 31rem);
+    animation-name: form-input;
+    animation-duration: 0.6s;
+    animation-delay: 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    &::after {
+      background-color: $c-light;
+      animation-name: opacity-block;
+      animation-duration: 0.6s;
+      animation-delay: 2s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      animation-direction: reverse;
+    }
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
@@ -151,5 +194,33 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+
+  .form__button {
+    opacity: 0;
+    animation-name: opacity-block;
+    animation-duration: 0.6s;
+    animation-delay: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  .form__button span {
+    opacity: 0;
+    animation-name: opacity-block;
+    animation-duration: 0.6s;
+    animation-delay: 1.6s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes form-input {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
   }
 }
