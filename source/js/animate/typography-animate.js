@@ -1,14 +1,16 @@
-const typographyBuild = (element,  timer, property, isDelayed, delay,  timeOffsetDelta) => {
+const typographyBuild = (element,  timer, property, isRandomDelay, isDelayed, delay,  timeOffsetDelta) => {
 
   let delta = 0;
   let timeOffset = 0;
 
   const createElement = (letter, delta) => {
     const span = document.createElement(`span`);
-    timeOffset = Math.floor(Math.random() * timeOffsetDelta);
-
     span.textContent = letter;
-    span.style.transition = `${property} ${timer}ms ease ${delay + timeOffset + delta}ms`
+
+    if (isRandomDelay) {
+      timeOffset = Math.floor(Math.random() * timeOffsetDelta);
+      span.style.transition = `${property} ${timer}ms ease ${delay + timeOffset + delta}ms`
+    }
 
     return span;
   }
@@ -43,13 +45,13 @@ const typographyBuild = (element,  timer, property, isDelayed, delay,  timeOffse
   prepareText();
 }
 
-const initTypographyAnimation = (element,  timer, property, isDelayed = true, delay = 0,  timeOffsetDelta = 200) => {
+const initTypographyAnimation = (element,  timer, property, isRandomDelay = false, isDelayed = true, delay = 0,  timeOffsetDelta = 200) => {
 
   if(!element) {
     return;
   }
 
-  typographyBuild(element, timer, property, isDelayed, delay, timeOffsetDelta);
+  typographyBuild(element, timer, property, isRandomDelay, isDelayed, delay, timeOffsetDelta);
 
   document.body.addEventListener(`screenChanged`, () => {
     element.classList.remove('animate--active');
