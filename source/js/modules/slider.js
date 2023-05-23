@@ -1,7 +1,8 @@
 import Swiper from "swiper";
 
-export default () => {
-  let storySlider;
+let storySlider;
+
+const slider = () => {
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
@@ -80,3 +81,5 @@ export default () => {
 
   setSlider();
 };
+
+export {slider, storySlider}

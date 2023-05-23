@@ -58,6 +58,14 @@
     height: 2.2rem;
   }
 
+  .color-blue & {
+    color: $c-blue;
+  }
+
+  .color-grey & {
+    color: $c-grey;
+  }
+
   &:hover,
   .social-block--active & {
     color: $c-purple;
@@ -65,6 +73,21 @@
     &::before {
       transform: translate(-50%, -50%) scale(1.125);
     }
+  }
+
+  .color-violet &:hover,
+  .color-violet .social-block--active & {
+    color: $c-dark;
+  }
+
+  .color-blue &:hover,
+  .color-blue .social-block--active & {
+    color: $c-grey;
+  }
+
+  .color-grey &:hover,
+  .color-grey .social-block--active & {
+    color: $c-blue;
   }
 
   &:focus {
@@ -81,6 +104,30 @@
     }
   }
 
+  .color-violet &:focus{
+    color: $c-dark;
+
+    &::before {
+      border-color: $c-dark;
+    }
+  }
+
+  .color-blue &:focus{
+    color: $c-grey;
+
+    &::before {
+      border-color: $c-grey;
+    }
+  }
+
+  .color-grey &:focus{
+    color: $c-blue;
+
+    &::before {
+      border-color: $c-blue;
+    }
+  }
+
   &:active,
   &:active:focus {
     color: $c-light;
@@ -91,6 +138,24 @@
       background-color: $c-purple;
       border-color: $c-purple;
     }
+  }
+
+  .color-violet &:active::before,
+  .color-violet &:active:focus::before {
+    background-color: $c-dark;
+    border-color: $c-dark;
+  }
+
+  .color-blue &:active::before,
+  .color-blue &:active:focus::before {
+    background-color: $c-grey;
+    border-color: $c-grey;
+  }
+
+  .color-grey &:active::before,
+  .color-grey &:active:focus::before {
+    background-color: $c-blue;
+    border-color: $c-blue;
   }
 }
 
@@ -214,6 +279,18 @@
     color: $c-purple;
   }
 
+  .color-violet &:hover {
+    color: $c-dark;
+  }
+
+  .color-blue &:hover {
+    color: $c-grey;
+  }
+
+  .color-grey &:hover {
+    color: $c-blue;
+  }
+
   &:focus {
     color: $c-purple;
     background-color: $c-light;
@@ -221,11 +298,41 @@
     outline: none;
   }
 
+  .color-violet &:focus {
+    color: $c-dark;
+    border-color: $c-dark;
+  }
+
+  .color-blue &:focus {
+    color: $c-grey;
+    border-color: $c-grey;
+  }
+
+  .color-grey &:focus {
+    color: $c-blue;
+    border-color: $c-blue;
+  }
+
   &:active,
   &:active:focus {
     color: $c-purple;
     background-color: $c-light;
     border-color: $c-light;
+  }
+
+  .color-violet &:active,
+  .color-violet &:active:focus {
+    color: $c-dark;
+  }
+
+  .color-blue &:active,
+  .color-blue &:active:focus {
+    color: $c-grey;
+  }
+
+  .color-grey &:active,
+  .color-grey &:active:focus {
+    color: $c-blue;
   }
 
   svg {

@@ -305,6 +305,30 @@
         background-color: $c-purple;
         transition: transform 0.5s ease, color 0.5s ease;
       }
+
+      .color-violet & {
+        color: $c-dark;
+
+        &::after {
+          background-color: $c-dark;
+        }
+      }
+
+      .color-blue & {
+        color: $c-grey;
+
+        &::after {
+          background-color: $c-grey;
+        }
+      }
+
+      .color-grey & {
+        color: $c-blue;
+
+        &::after {
+          background-color: $c-blue;
+        }
+      }
     }
   }
 }

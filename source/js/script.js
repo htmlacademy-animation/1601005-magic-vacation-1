@@ -1,6 +1,6 @@
 // modules
 import mobileHeight from './modules/mobile-height-adjust.js';
-import slider from './modules/slider.js';
+import {slider} from './modules/slider.js';
 import menu from './modules/menu.js';
 import footer from './modules/footer.js';
 import chat from './modules/chat.js';
@@ -10,6 +10,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import loadPage from './modules/load-page.js';
 import initScreenAnimation from './modules/screen-animation.js';
+import {bodyColorClass} from './modules/body-color-class.js';
 
 // init modules
 loadPage();
@@ -22,6 +23,7 @@ result();
 form();
 social();
 initScreenAnimation();
+bodyColorClass();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
