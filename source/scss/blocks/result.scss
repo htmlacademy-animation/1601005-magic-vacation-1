@@ -195,6 +195,12 @@
   line-height: 1.2;
   color: $c-light;
 
+  animation-name: opacity-block;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
     min-width: 340px;
@@ -226,6 +232,13 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    transform: translateX(4rem * 3.14) rotate(180deg);
+
+    animation-name: roll-block;
+    animation-timing-function: ease;
+    animation-duration: 0.5s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
@@ -347,7 +360,6 @@
     }
   }
 }
-
 
 @keyframes suitcase {
   from {
