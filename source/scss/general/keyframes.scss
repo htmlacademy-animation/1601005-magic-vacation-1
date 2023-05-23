@@ -7,6 +7,12 @@
   }
 }
 
+@keyframes translate-block {
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes roll-block {
   to {
     transform: translateX(0) rotate(0deg);
