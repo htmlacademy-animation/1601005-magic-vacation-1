@@ -171,6 +171,23 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  opacity: 0;
+
+  .active & {
+    animation-name: roll-block;
+    animation-duration: 0.5s;
+    animation-delay: 0.3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  &--prev {
+    transform: translateX(-6rem) rotate(-180deg);
+  }
+
+  &--next {
+    transform: translateX(6rem) rotate(180deg);
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -232,8 +249,13 @@
   }
 
   &.swiper-button-disabled {
-    opacity: 0.5;
+    color: rgba($c-dark, 0.5);
     pointer-events: none;
+
+    &::before {
+      background-color: rgba($c-light, 0.5);
+      border-color: rgba($c-light, 0.5);
+    }
   }
 }
 

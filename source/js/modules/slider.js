@@ -1,13 +1,15 @@
 import Swiper from "swiper";
 
-export default () => {
-  let storySlider;
+let storySlider;
+
+const slider = () => {
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
   const setSlider = function () {
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
       storySlider = new Swiper(`.js-slider`, {
+        speed: 400,
         pagination: {
           el: `.swiper-pagination`,
           type: `bullets`
@@ -36,6 +38,7 @@ export default () => {
       });
     } else {
       storySlider = new Swiper(`.js-slider`, {
+        speed: 400,
         slidesPerView: 2,
         slidesPerGroup: 2,
         pagination: {
@@ -80,3 +83,5 @@ export default () => {
 
   setSlider();
 };
+
+export {slider, storySlider}

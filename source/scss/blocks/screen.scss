@@ -42,12 +42,54 @@ h2 {
     span {
       display: inline-block;
       transform: translate3d(0, 120%, 0);
-      transition: transform 0.5s ease;
+      transition: none;
     }
   }
 
   &.animate--active .word span {
     transform: translate3d(0, 0, 0);
+    transition: transform 0.5s ease;
+  }
+}
+
+.screen-bottom {
+  position: relative;
+  background-color: $c-light;
+  transform: translateY(100%);
+  z-index: 10;
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    background-color: transparent;
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    background-color: transparent;
+  }
+
+  &.is-show {
+    animation-name: translate-block;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.36, 0.22, 0, 0.98);
+    animation-fill-mode: forwards;
+  }
+
+  &.is-opacity {
+    transform: translateY(0);
+
+    & > div {
+      animation-name: opacity-block;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: ease;
+    }
+  }
+
+  &.is-opacity-reverse > div{
+    animation-name: opacity-block;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+    animation-direction: reverse;
   }
 }
 
@@ -65,48 +107,55 @@ h2 {
   left: 0;
   right: 0;
   color: $c-dark;
-  background-color: $c-light;
   z-index: 1;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(0.36, 0.22, 0, 0.98);
 
-  .is-load & {
-    opacity: 1;
-    transform: translateY(0);
+  &::after {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 18rem;
+    background-color: $c-light;
+    border-radius: 0 3.6rem 0 0;
+    z-index: -1;
+    transform: translate(calc(3.5rem - 100%), 14.5rem);
+    transition: transform 0.3s ease;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+    &::after {
+      display: block;
+    }
 
-    &.screen__footer--full {
-      width: 100%;
-      height: 18rem;
+    &.screen__footer--full::after {
+      transform: translate(0, 0);
     }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
 
-    &.screen__footer--full {
-      width: 100%;
-      height: 16rem;
+    &::after {
+      display: block;
+    }
+
+    &.screen__footer--full::after {
+      transform: translate(0, 0);
     }
   }
 }
 
 .screen__footer-wrapper {
   @include container;
+  transition: none;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     opacity: 0;
 
     .screen__footer--full & {
       opacity: 1;
+      transition: opacity 0.3s ease 0.3s;
     }
   }
 
@@ -115,6 +164,7 @@ h2 {
 
     .screen__footer--full & {
       opacity: 1;
+      transition: opacity 0.3s ease 0.3s;
     }
   }
 }
@@ -357,19 +407,23 @@ h2 {
 
   h2 span{
     &:nth-child(1) {
-      transition-delay: 60ms;
+      transition-delay: 560ms;
     }
 
     &:nth-child(2) {
-      transition-delay: 20ms;
+      transition-delay: 520ms;
+    }
+
+    &:nth-child(3) {
+      transition-delay: 500ms;
     }
 
     &:nth-child(4) {
-      transition-delay: 20ms;
+      transition-delay: 520ms;
     }
 
     &:nth-child(5) {
-      transition-delay: 40ms;
+      transition-delay: 540ms;
     }
   }
 }

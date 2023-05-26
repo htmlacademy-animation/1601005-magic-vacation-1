@@ -163,7 +163,7 @@
 .form--result {
   .form__field {
     width: calc(100% - 31rem);
-    animation-name: form-input;
+    animation-name: scale-block;
     animation-duration: 0.6s;
     animation-delay: 1.5s;
     animation-timing-function: ease;
@@ -212,15 +212,5 @@
     animation-delay: 1.6s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
-  }
-}
-
-@keyframes form-input {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
   }
 }

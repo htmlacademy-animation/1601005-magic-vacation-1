@@ -12,7 +12,7 @@ const dateAnimation = () => {
 }
 
 const titleAnimation = () => {
-  const titles = document.querySelectorAll('h2');
+  const titles = document.querySelectorAll(`h2:not(.result__title)`);
 
   if(titles.length === 0) {
     return;
