@@ -13,7 +13,6 @@ import initScreenAnimation from './modules/screen-animation.js';
 import {bodyColorClass} from './modules/body-color-class.js';
 import { screenBottom } from './modules/screen-bottom.js';
 import { screenPrizes } from './modules/screen-prizes.js';
-import { initLetterAnimation } from './modules/letter-animation.js';
 
 // init modules
 loadPage();
@@ -26,7 +25,6 @@ result();
 form();
 social();
 initScreenAnimation();
-initLetterAnimation();
 bodyColorClass();
 screenBottom();
 screenPrizes();
