@@ -61253,9 +61253,10 @@ class FullPageScroll {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initLetterAnimation", function() { return initLetterAnimation; });
-const svgTitles = document.querySelectorAll('[data-letter-animation]');
 
 const initLetterAnimation = () => {
+  const svgTitles = document.querySelectorAll('[data-letter-animation]');
+
   if (svgTitles.length === 0) {
     return;
   }
@@ -61273,21 +61274,35 @@ const initLetterAnimation = () => {
 
       if(dropStep) {
         const delay = index * dropStep;
+        const opacityDur = 0.1 +  delay;
 
-        el.innerHTML = `<animate attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced"/>
+        el.innerHTML = `<animate id="dasharray" attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced" begin="indefinite"/>
+          <animate attributeType="CSS"
+            attributeName="opacity"
+            values="0; 1"
+            keyTimes="0; 1"
+            dur="${opacityDur}s"
+            calcMode="discrete"
+            fill="freeze" />
           <animateTransform attributeName="transform"
             type="translate"
             values="0 -99; 0 0; 0 -5; 0 0"
             keyTimes="0; 0.66; 0.83; 1"
             keySplines="0.88 0 1 1; 0.33 0 0.67 1; 0.33 0 0.67 1"
             calcMode="spline"
-            dur="0.8s"
+            dur="0.9s"
             fill="freeze"
-            begin="${delay}s" />`
+            begin="dasharray.begin + ${delay}s" />`
       } else {
-        el.innerHTML = `<animate attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced"/>`
+        el.innerHTML = `<animate attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced" begin="indefinite"/>`
       }
     })
+  });
+
+  const animateEls = document.querySelectorAll('animate');
+
+  animateEls.forEach((el) => {
+    el.beginElement();
   });
 };
 
@@ -61393,6 +61408,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _letter_animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./letter-animation */ "./source/js/modules/letter-animation.js");
+
+
 /* harmony default export */ __webpack_exports__["default"] = (() => {
   let showResultEls = document.querySelectorAll(`.js-show-result`);
   let results = document.querySelectorAll(`.screen--result`);
@@ -61409,6 +61427,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         targetEl[0].classList.add(`screen--show`);
         targetEl[0].classList.remove(`screen--hidden`);
+        Object(_letter_animation__WEBPACK_IMPORTED_MODULE_0__["initLetterAnimation"])();
       });
     }
 
@@ -61720,9 +61739,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_body_color_class_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/body-color-class.js */ "./source/js/modules/body-color-class.js");
 /* harmony import */ var _modules_screen_bottom_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/screen-bottom.js */ "./source/js/modules/screen-bottom.js");
 /* harmony import */ var _modules_screen_prizes_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/screen-prizes.js */ "./source/js/modules/screen-prizes.js");
-/* harmony import */ var _modules_letter_animation_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/letter-animation.js */ "./source/js/modules/letter-animation.js");
 // modules
-
 
 
 
@@ -61749,7 +61766,6 @@ Object(_modules_result_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 Object(_modules_form_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
 Object(_modules_social_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 Object(_modules_screen_animation_js__WEBPACK_IMPORTED_MODULE_10__["default"])();
-Object(_modules_letter_animation_js__WEBPACK_IMPORTED_MODULE_14__["initLetterAnimation"])();
 Object(_modules_body_color_class_js__WEBPACK_IMPORTED_MODULE_11__["bodyColorClass"])();
 Object(_modules_screen_bottom_js__WEBPACK_IMPORTED_MODULE_12__["screenBottom"])();
 Object(_modules_screen_prizes_js__WEBPACK_IMPORTED_MODULE_13__["screenPrizes"])();
