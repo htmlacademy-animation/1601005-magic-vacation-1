@@ -1,4 +1,3 @@
-
 const initLetterAnimation = () => {
   const svgTitles = document.querySelectorAll('[data-letter-animation]');
 

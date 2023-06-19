@@ -79,8 +79,17 @@
   line-height: 0.906;
   letter-spacing: 0;
 
+  span {
+    display: inline-block;
+    min-width: 5.3rem;
+  }
+
   @media (min-width: $stop-scaling) {
     font-size: 48px;
+
+    span {
+      min-width: 53px;
+    }
   }
 
   @media (min-width: $tablet) {
@@ -90,16 +99,28 @@
   @media (max-width: $tablet) and (orientation: portrait) {
     margin-bottom: 1.8rem;
     font-size: 3.6rem;
+
+    span {
+      min-width: 3.9rem;
+    }
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
     font-size: 3rem;
     margin-bottom: 2rem;
+
+    span {
+      min-width: 3.3rem;
+    }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     font-size: 2rem;
     margin-bottom: 1rem;
+
+    span {
+      min-width: 2.2rem;
+    }
   }
 }
 
