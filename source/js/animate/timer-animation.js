@@ -1,5 +1,7 @@
 const timerEl = document.querySelector('[data-timer');
 
+let timerReq;
+
 const initTimerAnimation = (timeInMin) => {
 
   if(!timerEl) {
@@ -7,8 +9,8 @@ const initTimerAnimation = (timeInMin) => {
   }
 
   const timeInSec = timeInMin * 60;
-  const minEl = timerEl.querySelector('[data-min');
-  const secEl = timerEl.querySelector('[data-sec');
+  const minEl = timerEl.querySelector('[data-min]');
+  const secEl = timerEl.querySelector('[data-sec]');
 
   let start = Date.now();
   let fpsInterval = 1000 / 1;
@@ -28,7 +30,7 @@ const initTimerAnimation = (timeInMin) => {
   draw();
 
   const timer = () => {
-    const timerReq = requestAnimationFrame(timer);
+    timerReq = requestAnimationFrame(timer);
 
     now = Date.now();
     elapsed = now - then;
@@ -40,15 +42,13 @@ const initTimerAnimation = (timeInMin) => {
 
       draw();
     }
-
-    document.body.addEventListener(`screenChanged`, (e) => {
-      if(e.detail.screenName !== "game") {
-        cancelAnimationFrame(timerReq);
-      }
-    })
   }
 
   requestAnimationFrame(timer);
 };
 
-export { initTimerAnimation };
+const cancelAnimation = () => {
+  cancelAnimationFrame(timerReq);
+}
+
+export { initTimerAnimation, cancelAnimation };
