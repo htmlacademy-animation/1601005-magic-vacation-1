@@ -13,6 +13,7 @@ import initScreenAnimation from './modules/screen-animation.js';
 import {bodyColorClass} from './modules/body-color-class.js';
 import { screenBottom } from './modules/screen-bottom.js';
 import { screenPrizes } from './modules/screen-prizes.js';
+import game from './modules/game.js';
 
 // init modules
 loadPage();
@@ -28,5 +29,8 @@ initScreenAnimation();
 bodyColorClass();
 screenBottom();
 screenPrizes();
+game();
+
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
