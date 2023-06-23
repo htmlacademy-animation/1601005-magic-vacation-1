@@ -141,7 +141,7 @@
       transform: translateX(25rem);
       animation-name: translate-block;
       animation-duration: 1s;
-      animation-delay: 7s;
+      animation-delay: 6s;
       animation-fill-mode: forwards;
 
       @media (min-width: $stop-scaling) {
@@ -159,6 +159,14 @@
       @media (max-width: $mobile) and (orientation: landscape) {
         transform: translateX(10rem);
       }
+    }
+
+    .prizes__desc {
+      animation-name: opacity-block;
+      animation-timing-function: ease;
+      animation-duration: 0.3s;
+      animation-delay: 4s;
+      animation-fill-mode: both;
     }
 
     .prizes__icon {
@@ -218,6 +226,14 @@
         width: 10rem;
       }
     }
+
+    .prizes__desc {
+      animation-name: opacity-block;
+      animation-timing-function: ease;
+      animation-duration: 0s;
+      animation-delay: 1.5s;
+      animation-fill-mode: both;
+    }
   }
 
   &--codes {
@@ -247,8 +263,8 @@
 
     .prizes__icon {
       position: relative;
-      left: 0;
-      bottom: -2rem;
+      left: -4rem;
+      bottom: -1.4rem;
       width: 26.8rem;
 
       @media (min-width: $stop-scaling) {
@@ -271,6 +287,14 @@
       @media (max-width: $mobile) and (orientation: landscape) {
         width: 10rem;
       }
+    }
+
+    .prizes__desc {
+      animation-name: opacity-block;
+      animation-timing-function: ease;
+      animation-duration: 0.3s;
+      animation-delay: 1.5s;
+      animation-fill-mode: both;
     }
   }
 }
