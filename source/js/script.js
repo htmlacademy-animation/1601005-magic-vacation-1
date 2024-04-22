@@ -11,11 +11,11 @@ import FullPageScroll from './modules/full-page-scroll';
 import loadPage from './modules/load-page.js';
 import initScreenAnimation from './modules/screen-animation.js';
 import {bodyColorClass} from './modules/body-color-class.js';
-import { screenBottom } from './modules/screen-bottom.js';
-import { screenPrizes } from './modules/screen-prizes.js';
+import {screenBottom} from './modules/screen-bottom.js';
+import {screenPrizes} from './modules/screen-prizes.js';
 import game from './modules/game.js';
+import WinScene from './canvas/win-canvas-animation';
 
-// init modules
 loadPage();
 mobileHeight();
 slider();
@@ -34,3 +34,8 @@ game();
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
 
+const winScene = new WinScene({
+  canvas: `#win-canvas`
+});
+
+winScene.startAnimation();
