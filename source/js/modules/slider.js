@@ -84,4 +84,4 @@ const slider = () => {
   setSlider();
 };
 
-export {slider, storySlider}
+export {slider, storySlider};

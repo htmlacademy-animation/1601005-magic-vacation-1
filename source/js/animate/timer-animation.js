@@ -1,22 +1,22 @@
-const timerEl = document.querySelector('[data-timer');
+const timerEl = document.querySelector(`[data-timer]`);
 
 let timerReq;
 
 const initTimerAnimation = (timeInMin) => {
 
-  if(!timerEl) {
+  if (!timerEl) {
     return;
   }
 
   const timeInSec = timeInMin * 60;
-  const minEl = timerEl.querySelector('[data-min]');
-  const secEl = timerEl.querySelector('[data-sec]');
+  const minEl = timerEl.querySelector(`[data-min]`);
+  const secEl = timerEl.querySelector(`[data-sec]`);
 
   let start = Date.now();
   let fpsInterval = 1000 / 1;
-  let now,
-    then = Date.now(),
-    elapsed;
+  let now;
+  let then = Date.now();
+  let elapsed;
   let totalTime = 0;
 
   const draw = () => {
@@ -25,7 +25,7 @@ const initTimerAnimation = (timeInMin) => {
 
     minEl.innerHTML = min < 10 ? `0${min}` : min;
     secEl.innerHTML = sec < 10 ? `0${sec}` : sec;
-  }
+  };
 
   draw();
 
@@ -42,13 +42,13 @@ const initTimerAnimation = (timeInMin) => {
 
       draw();
     }
-  }
+  };
 
   requestAnimationFrame(timer);
 };
 
 const cancelAnimation = () => {
   cancelAnimationFrame(timerReq);
-}
+};
 
-export { initTimerAnimation, cancelAnimation };
+export {initTimerAnimation, cancelAnimation};

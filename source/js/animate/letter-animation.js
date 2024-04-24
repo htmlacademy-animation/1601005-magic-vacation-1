@@ -1,5 +1,5 @@
 const initLetterAnimation = () => {
-  const svgTitles = document.querySelectorAll('[data-letter-animation]');
+  const svgTitles = document.querySelectorAll(`[data-letter-animation]`);
 
   if (svgTitles.length === 0) {
     return;
@@ -7,18 +7,18 @@ const initLetterAnimation = () => {
 
   svgTitles.forEach((title) => {
     const dropStep = title.dataset.dropStep ? title.dataset.dropStep : null;
-    const pathes = title.querySelectorAll('path');
+    const pathes = title.querySelectorAll(`path`);
 
     pathes.forEach((el, index) => {
       const pathLength = el.getTotalLength();
       const pointCount = el.dataset.pointCount;
 
-      const from = `0 ${pathLength/pointCount} `.repeat(pointCount);
-      const to = `${pathLength/pointCount} 0 `.repeat(pointCount);
+      const from = `0 ${pathLength / pointCount} `.repeat(pointCount);
+      const to = `${pathLength / pointCount} 0 `.repeat(pointCount);
 
-      if(dropStep) {
+      if (dropStep) {
         const delay = index * dropStep;
-        const opacityDur = 0.1 +  delay;
+        const opacityDur = 0.1 + delay;
 
         el.innerHTML = `<animate id="dasharray" attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced" begin="indefinite"/>
           <animate attributeType="CSS"
@@ -36,14 +36,14 @@ const initLetterAnimation = () => {
             calcMode="spline"
             dur="0.9s"
             fill="freeze"
-            begin="dasharray.begin + ${delay}s" />`
+            begin="dasharray.begin + ${delay}s" />`;
       } else {
-        el.innerHTML = `<animate attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced" begin="indefinite"/>`
+        el.innerHTML = `<animate attributeName="stroke-dasharray" from="${from}" to="${to}" dur="0.8s" calcMode="paced" begin="indefinite"/>`;
       }
-    })
+    });
   });
 
-  const animateEls = document.querySelectorAll('animate');
+  const animateEls = document.querySelectorAll(`animate`);
 
   animateEls.forEach((el) => {
     el.beginElement();
