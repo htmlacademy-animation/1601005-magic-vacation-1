@@ -47,8 +47,8 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    if(document.querySelector('.js-before-background.active') && this.screenElements[this.activeScreen].classList.contains(`js-after-background`)) {
-      this.backgroundElement.classList.add('is-show');
+    if (document.querySelector(`.js-before-background.active`) && this.screenElements[this.activeScreen].classList.contains(`js-after-background`)) {
+      this.backgroundElement.classList.add(`is-show`);
       setTimeout(() => {
         this.changeVisibilityDisplay();
       }, 400);
@@ -66,7 +66,7 @@ export default class FullPageScroll {
       screen.classList.remove(`active`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    this.backgroundElement.classList.remove('is-show');
+    this.backgroundElement.classList.remove(`is-show`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);

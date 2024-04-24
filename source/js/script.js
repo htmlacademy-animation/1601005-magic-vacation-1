@@ -15,6 +15,7 @@ import {screenBottom} from './modules/screen-bottom.js';
 import {screenPrizes} from './modules/screen-prizes.js';
 import game from './modules/game.js';
 import WinScene from './canvas/win-canvas-animation';
+import LoseScene from './canvas/lose-canvas-animation';
 
 loadPage();
 mobileHeight();
@@ -38,4 +39,9 @@ const winScene = new WinScene({
   canvas: `#win-canvas`
 });
 
+const loseScene = new LoseScene({
+  canvas: `#lose-canvas`
+});
+
 winScene.startAnimation();
+loseScene.startAnimation();

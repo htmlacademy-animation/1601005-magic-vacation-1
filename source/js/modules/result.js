@@ -1,4 +1,4 @@
-import { initLetterAnimation } from "../animate/letter-animation";
+import {initLetterAnimation} from "../animate/letter-animation";
 
 export default () => {
   let showResultEls = document.querySelectorAll(`.js-show-result`);
